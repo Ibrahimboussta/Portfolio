@@ -2,11 +2,12 @@
 import { useContext, useEffect, useRef } from 'react';
 import './firstSection.sass'
 import resume from '../../../assets/pdfs/resume.pdf'
-import me from '../../../assets/img/me.JPG'
+import me from '../../../assets/img/me.png'
 import about from '../../../assets/img/about.png'
 import coins from '../../../assets/img/coins.png'
 import shop from '../../../assets/img/shop.png'
 import platform from '../../../assets/img/platform.png'
+import event from '../../../assets/img/event.png'
 import { FaBootstrap, FaCloudDownloadAlt, FaCss3, FaGithub, FaLaravel, FaPhp, FaReact } from "react-icons/fa";
 import { FirstSectionAbout } from '../../About/components/firstSection';
 import Aos from 'aos';
@@ -25,23 +26,6 @@ export const FirstSection = () => {
     useEffect(() => {
         Aos.init();
     }, [])
-
-    const resume = "resume.pdf";
-
-    const handleDownload = () => {
-        const blob = new Blob([resume], { type: 'resume/pdf' });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'resume.pdf';
-
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        URL.revokeObjectURL(url);
-    };
 
 
     const form = useRef();
@@ -95,7 +79,7 @@ export const FirstSection = () => {
                                 </div>
                             </div>
                             <div className=''>
-                                <img data-aos="fade-left" data-aos-duration="2500" className='w-[20vw] rounded-2xl' src={me} alt="" />
+                                <img data-aos="fade-left" data-aos-duration="2500" className='w-[25vw] rounded-2xl' src={me} alt="" />
                             </div>
                         </div>
                     </div>
@@ -129,10 +113,8 @@ export const FirstSection = () => {
                         <div data-aos="fade-right" data-aos-duration="2500" className='w-[25%] flex flex-col gap-3 Currency'>
                             <h1 className='font-semibold text-xl'>Currency</h1>
                             <p className='text-l'>Creating a safe digital/physical medium that uses blockchain technology and cutting-edge security features to enable smooth transactions in a particular economic system. with the goals of creating a stable economy, encouraging financial inclusion, and creating a solid currency to sustain economic activity.</p>
-                            <div className='flex gap-5'>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Demo</button>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Github</button>
-                            </div>
+                            <button className='border border-black rounded-md px-4 w-20 hover:shadow-lg duration-500'><a target='_blank' href="">Github</a></button>
+
                         </div>
                     </div>
                     <div className='flex justify-center'>
@@ -146,10 +128,8 @@ export const FirstSection = () => {
                         <div className='w-[25%] flex flex-col gap-3 Currency'>
                             <h1 className='font-semibold text-xl'>E-commerce website</h1>
                             <p className='text-l'>My ability to create a user-friendly online platform with features like safe transactions, a product catalog, and responsive design is demonstrated by the E-commerce website project. displaying expertise in developing a smooth online purchasing experience for customers and companies.</p>
-                            <div className='flex gap-5'>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Demo</button>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Github</button>
-                            </div>
+                            <button className='border border-black rounded-md px-4 w-20 hover:shadow-lg duration-500'><a target='_blank' href="https://github.com/Ibrahimboussta/ibrahimBoussta_projet_react">Github</a></button>
+
                         </div>
                     </div>
                     <div className='flex justify-center'>
@@ -163,11 +143,29 @@ export const FirstSection = () => {
                         <div className='w-[25%] flex flex-col gap-3 Currency'>
                             <h1 className='font-semibold text-xl'>Social media platform</h1>
                             <p className='text-l'>Front-End Social Media Platform project, highlighting my design and user interface skills. Features include profiles, messaging, and personalized feeds, emphasizing a visually appealing and user-friendly experience.</p>
-                            <div className='flex gap-5'>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Demo</button>
-                                <button className='border border-black rounded-md px-4  hover:shadow-lg duration-500'>Github</button>
-                            </div>
+                            <button className='border border-black rounded-md px-4 w-20 hover:shadow-lg duration-500'><a target='_blank' href="https://github.com/oufkirhamza/DevHub">Github</a></button>
+
                         </div>
+                    </div>
+
+                    <div className='flex justify-center'>
+                        <hr className='w-[40%] border-black ' />
+                    </div>
+
+
+                    <div  data-aos="fade-right" data-aos-duration="2500" className='flex items-center justify-center gap-14 py-16 projects '>
+                        <div className=''>
+                            <img className='w-[30vw] rounded-xl hover:scale-110 duration-700 coins' src={event} alt="" />
+                        </div>
+                        <div className='w-[25%] flex flex-col gap-3 Currency'>
+                            <h1 className='font-semibold text-xl'>Events management platform</h1>
+                            <p className='text-l'>Our events platform is your one-stop destination for all things related to events. Whether you're organizing an event or looking to attend one, we've got you covered.</p>
+                                <button className='border border-black rounded-md px-4 w-20 hover:shadow-lg duration-500'><a target='_blank' href="https://github.com/Ibrahimboussta/ibrahim_boussta_project_final_latavel">Github</a></button>
+                        </div>
+                    </div>
+
+                    <div className='flex justify-center'>
+                        <hr className='w-[40%] border-black ' />
                     </div>
 
                     <div  data-aos="fade-right" data-aos-duration="2500" id='contact' className='py-14'>
@@ -189,13 +187,16 @@ export const FirstSection = () => {
                                 <div className='flex gap-4 msg'>
                                     <label htmlFor="" className='text-xl w-[15%]'>Message</label>
                                     <div className='flex flex-col gap-3 w-[100%] name'>
-                                        <textarea className='w-[100%] ml-2 border-none rounded-lg shadow-sm bg-[#efeeee] fullname' name="message" />
+                                        <textarea placeholder='Message' className='w-[100%] ml-2 border-none rounded-lg shadow-sm bg-[#efeeee] fullname' name="message" />
                                         <input className='flex border-none bg-white rounded-lg shadow-sm w-fit px-6 py-1 ml-2 ' type="submit" value="Send" />
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+
+
+                    
                 </div>
             </div>
         </>
